@@ -13,6 +13,7 @@ namespace FitnessProgramManagementSystem
         private string title { get; set; }
         private string duration { get; set; }
         private string price { get; set; }
+        public int TotalFitnessPrograms { get; private set; } = 1;
 
         public FitnessProgram(string fitnessProgramId, string title, string duration, string price)
         {
@@ -20,6 +21,7 @@ namespace FitnessProgramManagementSystem
             this.title = title;
             this.duration = duration;
             this.price = price;
+            TotalFitnessPrograms++;
         }
 
         public  override string ToString()
