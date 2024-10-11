@@ -14,9 +14,18 @@ namespace FitnessProgramManagementSystem
         {
             this.fitnessProgramList = new List<FitnessProgram>();
         }
-        public void CreateFitnessProgram(string programId, string title, string duration, string price)
+        public void CreateFitnessProgram(string type, string programId, string title, string duration, string price, string subscriptionType=null, bool needPersonalTrainer=false, string schedule=null, int groupCapacity=0)
         {
-            fitnessProgramList.Add(new FitnessProgram(programId,title,duration,price));
+            if (type == "1")
+            {
+                FitnessProgram program = new IndividualFitnessProgram(programId, title, duration, price,  subscriptionType, needPersonalTrainer);
+                fitnessProgramList.Add(program);
+            }
+            else
+            {
+                FitnessProgram program = new GroupFitnessProgram(programId, title, duration, price, schedule, groupCapacity);
+                fitnessProgramList.Add(program));
+            }
             Console.WriteLine("FitnessProgram added successfully.");
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,6 +72,9 @@ namespace FitnessProgramManagementSystem
 
         static void CreateFitnessProgram(FitnessProgramManager manager)
         {
+            Console.WriteLine("Enter FitnessProgram Type \n1. IndividualFitnessProgram : \n2. GroupFitnessProgram ");
+            string type = Console.ReadLine();
+
             Console.WriteLine("Enter FitnessProgram ID: ");
             string programId = Console.ReadLine();
 
@@ -80,10 +84,43 @@ namespace FitnessProgramManagementSystem
             Console.WriteLine("Enter FitnessProgram Duration: ");
             string duration = Console.ReadLine();
 
+
             Console.WriteLine("Enter FitnessProgram Price: ");
             string price = Console.ReadLine();
 
-            manager.CreateFitnessProgram(programId, title, duration, price);
+            if (type == "1")
+            {
+                Console.WriteLine("Enter FitnessProgram SubscriptionType: ");
+                string subcriptiontype = Console.ReadLine();
+
+                Console.WriteLine("Enter FitnessProgram NeedPersonalTrainer:(Yes/No) ");
+                string personalTrainer = (Console.ReadLine()).ToLower();
+
+                bool persnlTrainer;
+                if (personalTrainer == "yes")
+                {
+                    persnlTrainer = true;
+                }
+                else
+                {
+                    persnlTrainer= false;
+                }
+                manager.CreateFitnessProgram(type, programId, title, duration, price, subcriptiontype, persnlTrainer);
+
+
+            }
+            else
+            {
+                Console.WriteLine("Enter FitnessProgram Schedule: ");
+                string schedule = Console.ReadLine();
+
+                Console.WriteLine("Enter FitnessProgram GroupCapacity: ");
+                int grpcapacity = int.Parse( Console.ReadLine());
+                manager.CreateFitnessProgram(type, programId, title, duration, price, null,false, schedule, grpcapacity);
+
+
+            }
+
         }
 
         static void UpdateFitnessProgram(FitnessProgramManager manager)
