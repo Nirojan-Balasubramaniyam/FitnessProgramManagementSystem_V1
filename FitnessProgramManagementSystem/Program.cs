@@ -85,8 +85,11 @@ namespace FitnessProgramManagementSystem
             string duration = Console.ReadLine();
 
 
-            Console.WriteLine("Enter FitnessProgram Price: ");
-            string price = Console.ReadLine();
+            /* Console.WriteLine("Enter FitnessProgram Price: ");
+             string price = Console.ReadLine();*/
+
+            string price = manager.ValidateFitnessProgramPrice();
+            
 
             if (type == "1")
             {
@@ -137,8 +140,10 @@ namespace FitnessProgramManagementSystem
                 Console.WriteLine("Enter FitnessProgram Duration: ");
                 string duration = Console.ReadLine();
 
-                Console.WriteLine("Enter FitnessProgram Price: ");
-                string price = Console.ReadLine();
+                /* Console.WriteLine("Enter FitnessProgram Price: ");
+            string price = Console.ReadLine();*/
+
+                string price = manager.ValidateFitnessProgramPrice();
 
                 manager.UpdateFitnessProgram(programId, title, duration, price);
             }

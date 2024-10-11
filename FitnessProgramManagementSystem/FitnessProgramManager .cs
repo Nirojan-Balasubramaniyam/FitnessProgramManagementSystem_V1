@@ -24,7 +24,7 @@ namespace FitnessProgramManagementSystem
             else
             {
                 FitnessProgram program = new GroupFitnessProgram(programId, title, duration, price, schedule, groupCapacity);
-                fitnessProgramList.Add(program));
+                fitnessProgramList.Add(program);
             }
             Console.WriteLine("FitnessProgram added successfully.");
         }
@@ -81,6 +81,21 @@ namespace FitnessProgramManagementSystem
             else
             {
                 Console.WriteLine("No Programs available!!");
+            }
+        }
+
+        public string ValidateFitnessProgramPrice()
+        {
+            decimal price =0;
+            while (true)
+            {
+                Console.WriteLine("Enter FitnessProgram Price: ");
+                if(decimal.TryParse(Console.ReadLine(), out price) && price>0)
+                {
+                   return price.ToString(); ;
+                }
+
+                Console.WriteLine("Invalid price!! please enter positive Number value");
             }
         }
 
