@@ -44,7 +44,7 @@ namespace FitnessProgramManagementSystem
             }
 
         }
-        public void DeleteFitnessProgram(string programId, string title, string duration, string price)
+        public void DeleteFitnessProgram(string programId)
         {
             var program = GetProgramByID(programId);
             if (program != null)
