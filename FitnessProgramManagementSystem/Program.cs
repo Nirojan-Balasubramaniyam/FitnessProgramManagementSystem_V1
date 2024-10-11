@@ -10,7 +10,9 @@ namespace FitnessProgramManagementSystem
     {
         static void Main(string[] args)
         {
-
+            FitnessProgram FitnessProgram1 = new FitnessProgram("FIT_001", "YOGA", "3 months","10");
+            Console.WriteLine(FitnessProgram1.ToString());
+            Console.ReadLine();
         }
     }
 }
