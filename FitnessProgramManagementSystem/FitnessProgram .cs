@@ -26,6 +26,30 @@ namespace FitnessProgramManagementSystem
         {
             return $"fitnessProgramId: {fitnessProgramId}, Title: {title}, Duration: {duration}, Price: {price}"; 
         }
+        public void SetId(string id)
+        {
+            this.fitnessProgramId = id;
+        }
+
+        public string GetId()
+        {
+            return this.fitnessProgramId;
+        }
+
+        public void SetTitle(string title)
+        {
+            this.title = title;
+        }
+
+        public void SetDuration(string duration)
+        {
+            this.duration = duration;
+        }
+
+        public void SetPrice(string price)
+        {
+            this.price = price;
+        }
     }
 
 
