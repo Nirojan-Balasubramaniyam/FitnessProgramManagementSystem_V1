@@ -91,16 +91,25 @@ namespace FitnessProgramManagementSystem
             Console.WriteLine("Enter FitnessProgram ID: ");
             string programId = Console.ReadLine();
 
-            Console.WriteLine("Enter FitnessProgram Title: ");
-            string title = Console.ReadLine();
+            var program = manager.GetProgramByID(programId);
+            if (program != null)
+            {
+                Console.WriteLine("Enter FitnessProgram Title: ");
+                string title = Console.ReadLine();
 
-            Console.WriteLine("Enter FitnessProgram Duration: ");
-            string duration = Console.ReadLine();
+                Console.WriteLine("Enter FitnessProgram Duration: ");
+                string duration = Console.ReadLine();
 
-            Console.WriteLine("Enter FitnessProgram Price: ");
-            string price = Console.ReadLine();
+                Console.WriteLine("Enter FitnessProgram Price: ");
+                string price = Console.ReadLine();
 
-            manager.UpdateFitnessProgram(programId, title, duration, price);
+                manager.UpdateFitnessProgram(programId, title, duration, price);
+            }
+            else
+            {
+                Console.WriteLine($"No Program available for ID: {programId}");
+            }
+
         }
 
         static void DeleteFitnessProgram(FitnessProgramManager manager)

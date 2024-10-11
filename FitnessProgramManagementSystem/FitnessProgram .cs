@@ -50,6 +50,12 @@ namespace FitnessProgramManagementSystem
         {
             this.price = price;
         }
+
+        public virtual string DisplayFitnessProgramInfo()
+        {
+            //return this.ToString() ;
+            return $"fitnessProgramId: {fitnessProgramId}, Title: {title}, Duration: {duration}, Price: {price}";
+        }
     }
 
 
